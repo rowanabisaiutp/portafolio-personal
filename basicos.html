@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso js</title>
+</head>
+<body>
+  <div id="resultados">
+    <button onclick="obtenerTodos()">Mostrar todos los datos</button>
+  </div>
+  <script>
+    function obtenerTodos() {
+  fetch('https://api.nstack.in/v1/todos')
+    .then(response => response.json())
+    .then(data => {
+      // Agrega el resultado de la API al elemento HTML
+      document.getElementById('resultados').innerHTML = JSON.stringify(data);
+    })
+    .catch(error => console.error(error));
+}
+  </script>
+</body>
+</html>
